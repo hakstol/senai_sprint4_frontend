@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conversão Temperatura</title>
+</head>
+
+<body>
+
+    <h1>Conversor de temperatura</h1>
+
+    <form id="formtemperatura">
+        <input type="number" required name="temperatura" id="temperatura">
+        <input type="checkbox"  id="celcius" name="temperatura">Celcius</checkbox>
+        <input type="checkbox"  id="fahrenheit" name="temperatura">Fahrenheit</checkbox>
+        <button type="submit" id="btnConverter">Converter</button>
+    </form>
+
+    <script>
+        const numero = document.getElementById("temperatura")
+        const celcius = document.getElementById("celcius")
+        const fahrenheit = document.getElementById("fahrenheit")
+        const btn = document.getElementById("btnConverter")
+
+        btn.addEventListener('click', pagina => {
+            pagina.preventDefault()
+            if (celcius.checked == true && fahrenheit.checked == true) return console.log("Escolhe apenas uma conversão")
+            if (celcius.checked == false && fahrenheit.checked == false) return console.log("Escolha uma conversão")
+
+            let temperaturaFinal
+            if (celcius.checked)
+            {
+                temperaturaFinal = (parseInt(numero.value) - 32) * 1.8
+            }
+            else 
+            {
+                temperaturaFinal = (parseInt(numero.value) * 1.8) + 32
+            }
+
+            return console.log(temperaturaFinal)
+        })
+    </script>
+
+</body>
+
+</html>
